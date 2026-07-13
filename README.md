@@ -1,18 +1,56 @@
-# React + Vite
+# Pawan Yadav — Interactive Engineering Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, responsive single-page web portfolio engineered to present live code repositories, system design concentrations, and software engineering methodologies directly to technical recruiters.
 
-Currently, two official plugins are available:
+## 🚀 Live Production Environment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The application is fully compiled, automated, and continuously deployed using custom GitHub Actions infrastructure.
+👉 **[View Live Interactive Portfolio](https://PawanYadav33845.github.io/pawan-portfolio/)**
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🛠️ System Architecture & Technology Stack
 
-Note: This will impact Vite dev & build performances.
+* **Core UI Framework:** React 19 (compiled with Vite) utilizing declarative component layouts.
+* **Animation Engine:** Framer Motion for structural page loading transitions and fluid project breakdowns.
+* **Styling Framework:** Tailwind CSS implementing a utility-first, fully responsive dark-mode scheme.
+* **Icon Engine:** Lucide-React + clean embedded inline SVGs optimized for fast browser rendering.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚡ Real-Time API Node Integration (Dynamic Fetching)
+
+To eliminate manual profile maintenance, the application connects directly to external production interfaces upon initial layout mounting:
+
+* **Dynamic Repository Tree:** The page invokes a secure asynchronous browser hook to query the **GitHub REST API** (`https://api.github.com/users/PawanYadav33845/repos`).
+* **Runtime Filtering & Sorting:** The resulting response array automatically filters out external forks, sorts workspaces by their most recent active timestamp (`?sort=updated`), limits the node tree size, and dynamically streams the repository metadata (titles, descriptions, star counts, and language badges) straight into your interface.
+* **Frictionless Sync:** Every single time you push a new code improvement or create a new public repository on GitHub, your portfolio automatically updates live for viewing recruiters without needing a rebuild.
+
+---
+
+## 📋 Interactive Engineering Accordions (STAR Framework)
+
+The project portfolio features an interactive technical breakdown designed around the industry-standard **STAR method** (Situation, Task, Action, Result) for engineering highlights:
+* **Face Hit:** Web-based game tracking computer vision node coordinates utilizing local storage persistence frameworks.
+* **Responsive Alarm System:** Core Object-Oriented Programming (OOP) architectures engineered using custom UI thread execution check loops.
+* **Keylogger Diagnostic Tool:** A Python cybersecurity script monitoring hardware level input layers with robust network fallback exceptions.
+* **Online Examination Platform:** Structured PHP and relational SQL dashboards built with strict role-based session protection schemas.
+
+---
+
+## 🔧 Local Development & Compilation Steps
+
+To clone the application workspace and initialize the local development hot-reloading engine, run the following sequence in your terminal terminal:
+
+```bash
+# Clone the repository workspace
+git clone [https://github.com/PawanYadav33845/pawan-portfolio.git](https://github.com/PawanYadav33845/pawan-portfolio.git)
+
+# Navigate into the project application directory
+cd pawan-portfolio/pawan-portfolio
+
+# Install production-ready dependency nodes
+npm install
+
+# Initialize local developer compilation server
+npm run dev

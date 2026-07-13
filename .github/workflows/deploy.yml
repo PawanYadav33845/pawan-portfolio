@@ -29,10 +29,10 @@ jobs:
           node-version: 24
 
       - name: Install dependencies
-        run: cd pawan-portfolio && npm ci
+        run: npm ci
 
       - name: Build
-        run: cd pawan-portfolio && npm run build
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

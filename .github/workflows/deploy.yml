@@ -26,9 +26,9 @@ jobs:
 
       # Setup Node with standard active support runtime
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
           cache-dependency-path: './pawan-portfolio/package-lock.json'
 
@@ -53,4 +53,4 @@ jobs:
       # Upgraded deployment action to final release specs
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v6

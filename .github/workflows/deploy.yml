@@ -20,37 +20,29 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      # Upgraded to modern v6 matching GitHub's new version guidelines
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
-      # Setup Node with standard active support runtime
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
-          cache-dependency-path: './pawan-portfolio/package-lock.json'
 
-      # Install dependencies targeting the nested application folder
       - name: Install dependencies
-        run: npm ci --prefix pawan-portfolio
+        run: npm ci
 
-      # Compile production build targeting the nested application folder
       - name: Build
-        run: npm run build --prefix pawan-portfolio
+        run: npm run build
 
-      # Upgraded configuration action to support modern runners
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v4
 
-      # Upgraded artifact upload action to support modern runners
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './pawan-portfolio/dist'
+          path: './dist'
 
-      # Upgraded deployment action to final release specs
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

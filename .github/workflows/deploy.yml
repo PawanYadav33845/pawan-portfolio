@@ -53,4 +53,4 @@ jobs:
       # Upgraded deployment action to final release specs
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v6
+        uses: actions/deploy-pages@v4

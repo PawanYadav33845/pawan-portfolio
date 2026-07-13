@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, ExternalLink, Code2, Award, Terminal, GraduationCap, User, Download, ShieldCheck, Database, Cpu } from 'lucide-react';
+import { Mail, Phone, MapPin, Code2, Award, Terminal, GraduationCap, User, Download, ShieldCheck, Database, Cpu, ExternalLink } from 'lucide-react';
 
 export default function App() {
   const [repos, setRepos] = useState([]);
@@ -12,6 +12,7 @@ export default function App() {
       id: 'face-hit',
       title: 'Face Hit — Interactive AI Game',
       timeline: 'Dec 2023 - Mar 2024',
+      liveUrl: 'https://pawanyadav33845.github.io/face-hit/',
       description: 'Built a basic web game using image recognition and machine learning APIs. Developed an interactive engine that maps the user\'s nose as a pointer to interact with targets on-screen.',
       challenge: 'Optimized browser frame-rate performance by minimizing heavy DOM manipulation calls during real-time image recognition stream processing.',
       impact: 'Successfully shifted state overhead off the server by implementing local storage protocols to manage high score metrics entirely on the client side.',
@@ -21,6 +22,7 @@ export default function App() {
       id: 'digital-clock',
       title: 'Responsive Digital Alarm System',
       timeline: 'Nov 2023 - Jan 2024',
+      liveUrl: '#',
       description: 'Engineered a multi-feature digital clock interface tracking current time, date, and day with a fully responsive dynamic UI. Features include multiple 24-hour alarms, window alerts with notification audio, a 10-minute automated snooze cycle, and active list management options.',
       challenge: 'Designed a completely fluid UI layout where structural elements resize dynamically when the runtime container window changes shapes.',
       impact: 'Applied foundational Object-Oriented programming architectures to isolate alarm queues and background check loops seamlessly.',
@@ -30,6 +32,7 @@ export default function App() {
       id: 'keylogger',
       title: 'Keylogger Diagnostic Tool (Cybersecurity)',
       timeline: 'June 2023 - Sept 2023',
+      liveUrl: '#',
       description: 'Developed a standalone keyboard monitor script built to research hardware input hooks, logging precise alphanumeric keystrokes mapped directly to system time/date text files.',
       challenge: 'Implemented defensive error exceptions to gracefully handle sudden local network link dropouts during secure SMTP mail transfers without causing the background process to crash.',
       impact: 'Automated remote log shipping using encrypted email transmission protocols (smtplib) to safely forward intelligence to administrative mailboxes.',
@@ -39,6 +42,7 @@ export default function App() {
       id: 'exam-platform',
       title: 'Secure Online Examination Platform',
       timeline: 'Apr 2023 - July 2023',
+      liveUrl: 'https://pawanyadav33845.github.io/exam-platform/',
       description: 'Designed a sample architecture for conducting secure student assessments online, formulating dedicated, isolated portal dashboards for both students and instructors.',
       challenge: 'Mitigated cross-role data leaks by writing strict access control validation scripts for incoming HTTP session updates.',
       impact: 'Safeguarded relational user tables by mapping and storing application identities and password arrays securely inside SQL.',
@@ -64,7 +68,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 overflow-x-hidden relative">
       
-      {/* Dynamic Background Blurs */}
+      {/* Background Blurs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full filter blur-[100px] pointer-events-none" />
       <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-cyan-600/10 rounded-full filter blur-[100px] pointer-events-none" />
 
@@ -92,7 +96,6 @@ export default function App() {
                 <span className="flex items-center gap-1"><Phone size={14} /> +918840069545</span>
                 <span className="hidden md:inline text-slate-700">•</span>
                 
-                {/* LinkedIn Link */}
                 <a 
                   href="https://www.linkedin.com/in/pawan-yadav-119620229/" 
                   target="_blank" 
@@ -103,7 +106,6 @@ export default function App() {
                   <ExternalLink size={10} />
                 </a>
                 
-                {/* GitHub Link */}
                 <a 
                   href="https://github.com/PawanYadav33845/" 
                   target="_blank" 
@@ -116,7 +118,6 @@ export default function App() {
               </div>
             </div>
             
-            {/* Action Buttons */}
             <div className="flex flex-wrap sm:flex-nowrap gap-3">
               <motion.a 
                 whileHover={{ scale: 1.03 }}
@@ -144,7 +145,7 @@ export default function App() {
           </div>
         </motion.header>
 
-        {/* PROFILE SUMMARY COMPONENT */}
+        {/* SUMMARY */}
         <motion.section 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -157,13 +158,11 @@ export default function App() {
           </p>
         </motion.section>
 
-        {/* CORE GRID ARCHITECTURE */}
+        {/* MAIN GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           
-          {/* SIDEBAR COL */}
+          {/* SIDEBAR */}
           <div className="space-y-6">
-            
-            {/* SKILL MATRIX */}
             <motion.section 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -199,7 +198,6 @@ export default function App() {
               </div>
             </motion.section>
 
-            {/* ENGINEERING FOCUS */}
             <motion.section 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -219,7 +217,6 @@ export default function App() {
               </div>
             </motion.section>
 
-            {/* EDUCATION */}
             <motion.section 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -241,7 +238,6 @@ export default function App() {
               </div>
             </motion.section>
 
-            {/* CERTIFICATIONS */}
             <motion.section 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -257,10 +253,10 @@ export default function App() {
             </motion.section>
           </div>
 
-          {/* MAIN CANVAS */}
+          {/* CANVAS AREA */}
           <div className="lg:col-span-2 space-y-8">
             
-            {/* PROJECTS ACCORDION */}
+            {/* PROJECTS HIGHLIGHTS */}
             <section className="space-y-4">
               <h2 className="text-xl font-bold tracking-tight text-slate-200 pl-1">Engineering Highlights</h2>
               <div className="grid grid-cols-1 gap-4">
@@ -268,10 +264,12 @@ export default function App() {
                   <motion.div
                     key={project.id}
                     layout
-                    onClick={() => setActiveProjectTab(activeProjectTab === project.id ? null : project.id)}
-                    className="p-5 bg-slate-900/30 rounded-xl border border-slate-800/80 hover:border-indigo-500/50 cursor-pointer transition-all duration-300 shadow-lg relative overflow-hidden group"
+                    className="p-5 bg-slate-900/30 rounded-xl border border-slate-800/80 hover:border-indigo-500/50 transition-all duration-300 shadow-lg relative overflow-hidden group"
                   >
-                    <div className="flex items-start justify-between gap-4">
+                    <div 
+                      onClick={() => setActiveProjectTab(activeProjectTab === project.id ? null : project.id)}
+                      className="flex items-start justify-between gap-4 cursor-pointer"
+                    >
                       <div>
                         <span className="text-[11px] font-mono text-indigo-400 bg-indigo-950/40 border border-indigo-900/50 px-2 py-0.5 rounded">
                           {project.timeline}
@@ -280,7 +278,7 @@ export default function App() {
                           {project.title}
                         </h3>
                       </div>
-                      <span className="text-xs text-slate-500 font-mono flex-shrink-0">
+                      <span className="text-xs text-slate-500 font-mono flex-shrink-0 mt-1">
                         {activeProjectTab === project.id ? '[-] Collapse' : '[+] Technical Breakdown'}
                       </span>
                     </div>
@@ -308,7 +306,7 @@ export default function App() {
                             <p className="text-xs text-slate-400 leading-relaxed">{project.impact}</p>
                           </div>
 
-                          <div className="pt-2">
+                          <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div className="flex flex-wrap gap-1.5">
                               {project.tech.map((t) => (
                                 <span key={t} className="text-[10px] bg-slate-900 px-2.5 py-1 rounded border border-slate-800 text-indigo-300 font-mono">
@@ -316,6 +314,18 @@ export default function App() {
                                 </span>
                               ))}
                             </div>
+                            
+                            {project.liveUrl && project.liveUrl !== '#' && (
+                              <a 
+                                href={project.liveUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 border border-emerald-500/20 bg-emerald-500/5 hover:bg-emerald-500/10 px-3 py-1.5 rounded-lg transition font-mono self-start sm:self-auto"
+                              >
+                                <span>Live Demo</span>
+                                <ExternalLink size={12} />
+                              </a>
+                            )}
                           </div>
                         </motion.div>
                       )}
@@ -325,7 +335,7 @@ export default function App() {
               </div>
             </section>
 
-            {/* GITHUB INTEGRATION TREE */}
+            {/* UPGRADED LIVE GITHUB GRID WITH ACTIONS ROW */}
             <section className="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 backdrop-blur-xl shadow-2xl">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
@@ -344,36 +354,60 @@ export default function App() {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {repos.map((repo) => (
-                    <motion.a
-                      key={repo.id}
-                      href={repo.html_url}
-                      target="_blank"
-                      rel="noreferrer"
-                      whileHover={{ y: -3 }}
-                      className="group p-4 bg-slate-950/60 rounded-xl border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between gap-2">
-                          <h3 className="font-bold text-slate-200 group-hover:text-cyan-400 text-sm truncate font-mono transition-colors">
-                            {repo.name}
-                          </h3>
-                          <ExternalLink size={12} className="text-slate-600 group-hover:text-cyan-400 transition-colors flex-shrink-0" />
-                        </div>
-                        <p className="text-xs text-slate-400 mt-2 line-clamp-2 min-h-[2rem] leading-relaxed">
-                          {repo.description || 'No system description configured for this specific engineering workspace.'}
-                        </p>
-                      </div>
+                  {repos.map((repo) => {
+                    // Compute the automatic GitHub Pages hosting endpoint dynamically
+                    const computedLiveUrl = `https://pawanyadav33845.github.io/${repo.name}/`;
 
-                      <div className="mt-4 pt-3 border-t border-slate-900/60 flex justify-between items-center text-[11px] text-slate-500 font-mono">
-                        <span className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                          {repo.language || 'Markdown'}
-                        </span>
-                        <span>⭐ {repo.stargazers_count}</span>
+                    return (
+                      <div
+                        key={repo.id}
+                        className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col justify-between group"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between gap-2">
+                            <h3 className="font-bold text-slate-200 text-sm truncate font-mono">
+                              {repo.name}
+                            </h3>
+                            <span className="text-[11px] text-slate-500 font-mono flex-shrink-0">
+                              ⭐ {repo.stargazers_count}
+                            </span>
+                          </div>
+                          <p className="text-xs text-slate-400 mt-2 line-clamp-2 min-h-[2rem] leading-relaxed">
+                            {repo.description || 'No system description configured for this specific engineering workspace.'}
+                          </p>
+                        </div>
+
+                        <div className="mt-4 pt-3 border-t border-slate-900/60 space-y-3">
+                          <div className="text-[11px] text-slate-500 font-mono flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                            {repo.language || 'Markdown'}
+                          </div>
+
+                          {/* Dual Action Buttons Row */}
+                          <div className="flex items-center gap-2 w-full pt-1">
+                            <a
+                              href={repo.html_url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="flex-1 inline-flex items-center justify-center gap-1 text-[11px] text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-md py-1.5 transition font-mono"
+                            >
+                              <span>Repository</span>
+                              <ExternalLink size={10} />
+                            </a>
+                            <a
+                              href={computedLiveUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="flex-1 inline-flex items-center justify-center gap-1 text-[11px] text-emerald-400 hover:text-emerald-300 bg-emerald-500/5 hover:bg-emerald-500/10 border border-emerald-500/20 rounded-md py-1.5 transition font-mono"
+                            >
+                              <span>Live Demo</span>
+                              <ExternalLink size={10} />
+                            </a>
+                          </div>
+                        </div>
                       </div>
-                    </motion.a>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </section>

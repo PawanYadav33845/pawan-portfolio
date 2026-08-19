@@ -36,7 +36,7 @@ export default function App() {
       title: 'PortVision — Asynchronous Reconnaissance Engine',
       timeline: '2026',
       githubUrl: 'https://github.com/PawanYadav33845/PortVision',
-      liveUrl: '#',
+      liveUrl: 'https://portvision.onrender.com/',
       summary: 'Engineered a comprehensive port scanning and network reconnaissance tool tailored for vulnerability assessment and penetration testing (VAPT) workflows.',
       highlights: [
         'Implemented robust service enumeration capabilities to identify active endpoints, open ports, and potential attack vectors.',
@@ -183,16 +183,69 @@ export default function App() {
     }
   ];
 
+  // Helper function to extract Live Demo link from README.md content
+  const extractDemoUrlFromReadme = (readmeText) => {
+    if (!readmeText) return null;
+
+    // 1. Look for explicit bullet points or links: e.g. - Live Web App Demo: https://...
+    const bulletMatch = readmeText.match(/(?:Live\s*(?:Web\s*)?(?:App\s*)?Demo)[^:\n]*:\s*\[?(https?:\/\/[^\s\)\n\]]+)/i);
+    if (bulletMatch && !bulletMatch[1].includes('shields.io')) {
+      return bulletMatch[1].replace(/\]$/, '').trim();
+    }
+
+    // 2. Look for badge target links: [![Live Demo](...badge...)](target_url)
+    const badgeTargetMatch = readmeText.match(/\[\!\[[^\]]*Live\s*Demo[^\]]*\]\([^\)]+\)\]\((https?:\/\/[^\s\)]+)\)/i);
+    if (badgeTargetMatch && !badgeTargetMatch[1].includes('shields.io')) {
+      return badgeTargetMatch[1].trim();
+    }
+
+    // 3. Look for standard markdown link: [Live Demo](target_url)
+    const mdMatch = readmeText.match(/\[[^\]]*Live\s*(?:Demo|App|Web|Site)[^\]]*\]\((https?:\/\/[^\s\)]+)\)/i);
+    if (mdMatch && !mdMatch[1].includes('shields.io')) {
+      return mdMatch[1].trim();
+    }
+
+    // 4. Match deployment domains (onrender.com, vercel.app, netlify.app)
+    const platformMatch = readmeText.match(/https?:\/\/[a-zA-Z0-9-]+\.(?:onrender\.com|vercel\.app|netlify\.app)\/?[^\s\)\n\]]*/i);
+    if (platformMatch) {
+      return platformMatch[0].trim();
+    }
+
+    return null;
+  };
+
   // Fetch Public Repos Function
   const fetchGitHubRepos = () => {
     setRefreshing(true);
     fetch('https://api.github.com/users/PawanYadav33845/repos?per_page=100&sort=updated')
       .then((res) => res.json())
-      .then((data) => {
+      .then(async (data) => {
         if (Array.isArray(data)) {
-          // Filter out forks if desired or show all public repos
           const publicRepos = data.filter(repo => !repo.fork && repo.visibility === 'public');
-          setRepos(publicRepos);
+          
+          // Asynchronously fetch README.md for each repo to dynamically detect Live Demo links
+          const enrichedRepos = await Promise.all(
+            publicRepos.map(async (repo) => {
+              let readmeDemoUrl = null;
+              try {
+                const branch = repo.default_branch || 'main';
+                const readmeRes = await fetch(`https://raw.githubusercontent.com/PawanYadav33845/${repo.name}/${branch}/README.md`);
+                if (readmeRes.ok) {
+                  const text = await readmeRes.text();
+                  readmeDemoUrl = extractDemoUrlFromReadme(text);
+                }
+              } catch (err) {
+                console.error(`Could not fetch README for ${repo.name}:`, err);
+              }
+
+              return {
+                ...repo,
+                readme_demo_url: readmeDemoUrl
+              };
+            })
+          );
+
+          setRepos(enrichedRepos);
         }
         setLoading(false);
         setRefreshing(false);
@@ -744,8 +797,8 @@ export default function App() {
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {filteredRepos.map((repo) => {
-                    const hasLiveDemo = repo.has_pages || repo.homepage || repo.name === 'facehit' || repo.name === 'online-examination-platform';
-                    const liveDemoUrl = repo.homepage || `https://pawanyadav33845.github.io/${repo.name}/`;
+                    const liveDemoUrl = repo.readme_demo_url || repo.homepage || (repo.has_pages ? `https://pawanyadav33845.github.io/${repo.name}/` : (repo.name === 'facehit' ? 'https://pawanyadav33845.github.io/facehit/' : null));
+                    const hasLiveDemo = Boolean(liveDemoUrl);
 
                     return (
                       <motion.div

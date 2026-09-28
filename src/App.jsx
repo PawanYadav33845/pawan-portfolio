@@ -375,8 +375,10 @@ export default function App() {
               <motion.a 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                href="/Pawan_Yadav_Resume.pdf" 
-                download
+                href={`${import.meta.env.BASE_URL}Pawan_Yadav_Resume.pdf`} 
+                download="Pawan_Yadav_Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white px-5 py-3 rounded-xl transition font-medium text-sm shadow-lg shadow-indigo-600/20 w-full sm:w-auto"
               >
                 <Download size={16} />
